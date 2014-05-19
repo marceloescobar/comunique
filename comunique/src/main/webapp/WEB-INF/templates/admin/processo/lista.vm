@@ -49,22 +49,13 @@
 														
 														<td><a href="#">$processo.processo</a></td>
 														<td>$processo.interessado</td>
-														<td>$processo.12/03/2014</td>
+														<td>$processo.dataCadastro</td>
 														<td><span class="badge badge-danger">C</span></td>
+														<!-- <td><span class="badge badge-success">A</span></td> -->
 														
 													</tr>
 														
 													#end	
-													
-											
-													<tr>
-														<td><a href="#">4454545/1990</a></td>
-														<td>12.4.2004</td>
-														<td><span class="badge badge-success">A</span></td>
-														<td>Author</td>
-
-													</tr>
-												
 													
 												
 												</table>
