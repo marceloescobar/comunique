@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	
+	
+	<context:annotation-config/>
+	 
+	<context:component-scan base-package="br.gov.sp.sorocaba"/>
+	
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+        	<bean class="org.springframework.data.web.PageableArgumentResolver" />
+    	</mvc:argument-resolvers>
+    </mvc:annotation-driven>	
+	
+	<mvc:default-servlet-handler/>
+	
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+	
+	<bean id="velocityConfigurer" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="resourceLoaderPath">
+			 <value><![CDATA[/WEB-INF/templates]]></value>
+		</property>
+		<property name="velocityPropertiesMap">
+			<map>
+				<entry key="resource.loader" value="file" />
+				<entry key="file.resource.loader.cache" value="true" />
+				<entry key="directive.foreach.counter.name" value="count" />
+				<entry key="directive.foreach.counter.initial.value" value="0" />
+				<entry key="velocimacro.permissions.allow.inline" value="true" />
+				<entry key="velocimacro.permissions.allow.inline.to.replace.global" value="false" />
+				<entry key="velocimacro.permissions.allow.inline.local.scope" value="false" />
+				<entry key="velocimacro.context.localscope" value="false" />
+				<entry key="velocimacro.library.autoreload" value="true" />
+				<!--  <entry key="velocimacro.library" value="macros/macros.vm" />-->
+				<entry key="runtime.interpolate.string.literals" value="true" />
+				<entry key="parser.pool.size" value="20" />
+				<entry key="runtime.log" value="velocity.log" />
+				<entry key="runtime.log.error.stacktrace" value="false" />
+				<entry key="runtime.log.warn.stacktrace" value="false" />
+				<entry key="runtime.log.info.stacktrace" value="false" />
+				<entry key="runtime.log.invalid.references" value="true" />
+				<entry key="input.encoding" value="UTF-8" />
+				<entry key="output.encoding" value="UTF-8" />
+			</map>
+		</property>
+	</bean>
+	
+</beans>						

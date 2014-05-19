@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+       http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd"
+	default-autowire="byName">
+
+	<context:property-placeholder location="classpath:datasource.properties"/>
+	
+
+	<jpa:repositories base-package="br.gov.sp.sorocaba" />	
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+		<property name="driverClass" value="${data_source.driver_class_name}" />
+		<property name="jdbcUrl" value="${data_source.url}${data_source.parameters}" />
+		<property name="user" value="${data_source.username}" />
+		<property name="password" value="${data_source.password}" />
+		<property name="minPoolSize" value="${c3p0.min_size}" />
+		<property name="maxPoolSize" value="${c3p0.max_size}" />
+		<property name="maxIdleTime" value="${c3p0.max_idle_time}" />
+		<property name="acquireIncrement" value="${c3p0.acquire_increment}" />
+		<property name="maxStatements" value="${c3p0.max_statements}" />
+		<property name="idleConnectionTestPeriod" value="${c3p0.idle_test_period}" />
+		<property name="initialPoolSize" value="${c3p0.initial_pool_size}" />
+		<property name="numHelperThreads" value="${c3p0.num_helper_threads}" />
+	</bean>
+
+	<bean id="persistenceUnitManager" class="org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager">
+  		<property name="persistenceXmlLocations">
+    		<list>
+     		<value>classpath*:META-INF/persistence.xml</value>
+    		</list>
+  		</property>
+  		<property name="defaultDataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceUnitManager" ref="persistenceUnitManager"/>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="showSql" value="${hibernate.show_sql}"/>
+				<property name="generateDdl" value="${database.generate.ddl}"/>
+				<property name="database" value="${database.vendor}"/>
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<!-- <prop key="hibernate.cache.provider_class">${hibernate.cache.provider_class}</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop> -->
+				<prop key="hibernate.generate_statistics">false</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+
+	<tx:annotation-driven/>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory"/>
+	</bean>
+
+</beans>
