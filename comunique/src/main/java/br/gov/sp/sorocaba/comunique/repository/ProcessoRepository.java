@@ -15,5 +15,5 @@ public interface ProcessoRepository extends JpaRepository<Processo, Integer> {
 	
 	Processo findByProcesso(Integer processo);
 	
-	Page<Processo> findOrderByProcessoDesc(Pageable pageable);
+	Page<Processo> findOrderByProcesso(Pageable pageable);
 }

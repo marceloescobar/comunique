@@ -1,10 +1,15 @@
 
 						<div class="page-content">
 						
+							teste
+							#foreach($t in $processo.tramitacoes)
+												$t.setorRemetente / $t.dataEnvio<br>
+											#end	
+											
 							<!-- Heading -->
 							<div class="single-head">
 								<!-- Heading -->
-								<h3 class="pull-left"><i class="fa fa-envelope green"></i> Processo nr 2014/232323</h3>
+								<h3 class="pull-left"><i class="fa fa-envelope green"></i> Processo $processo.processo</h3>
 								<!-- Bread crumbs -->
 								<div class="breads pull-right">
 									<strong>Nav</strong> : <a href="#">Home</a> / <a href="#">Sign</a> / Home
@@ -29,25 +34,34 @@
 												<div class="mail-attach">
 													<div class="attach-data">
 														<!-- Title -->
-														<p><strong>interessado:</strong> Ana Maria de Souza </p>
+														<p><strong>interessado:</strong> $processo.interessado</p>
 														<div class="clearfix"></div>
 													</div>
 													<div class="attach-data">
 														<!-- Title -->
-														<p><strong>Codigo Assunto:</strong>  500003</p>
+														<p><strong>Codigo Assunto:</strong> $processo.codigoAssunto</p>
 														<div class="clearfix"></div>
 													</div>
 													<div class="attach-data">
 														<!-- Title -->
-														<p><strong>Assunto:</strong> PEDIDO DE CERTIDAO </p>
+														<p><strong>Assunto:</strong> $processo.assunto</p>
 														<div class="clearfix"></div>
 													</div>
-												</div> <!-- End mail attach -->
-											</div> <!-- End mail details -->
+													<div class="attach-data">
+														<!-- Title -->
+														<p><strong>Situação:</strong> $processo.situacao.label</p>
+														
+														
+														<div class="clearfix"></div>
+													</div>
+												</div> 
+											</div> 
 											
 											
 											
-										</div> <!-- End mail read -->
+											
+											
+										</div> 
 									</div>
 								</div>
 							</div>

@@ -1,19 +1,29 @@
 package br.gov.sp.sorocaba.comunique.dominio;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "processos")
-public class Processo {
+public class Processo implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name="proCodigo")
@@ -41,6 +51,10 @@ public class Processo {
 	@Column(name="proSituacao")
 	@Enumerated(EnumType.STRING)
 	private ProcessoSituacao situacao;
+	
+	@OneToMany(fetch=FetchType.LAZY)
+	@JoinColumn(name="traProcesso", referencedColumnName="proProcesso")
+	private List<Tramitacao> tramitacoes;
 	
 
 	public Integer getId() {
@@ -105,6 +119,14 @@ public class Processo {
 
 	public void setSituacao(ProcessoSituacao situacao) {
 		this.situacao = situacao;
+	}
+
+	public List<Tramitacao> getTramitacoes() {
+		return tramitacoes;
+	}
+
+	public void setTramitacoes(List<Tramitacao> tramitacoes) {
+		this.tramitacoes = tramitacoes;
 	}
 	
 	

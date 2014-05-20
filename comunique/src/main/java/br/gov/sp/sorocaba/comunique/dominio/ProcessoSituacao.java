@@ -1,7 +1,7 @@
 package br.gov.sp.sorocaba.comunique.dominio;
 
 public enum ProcessoSituacao {
-	T("Tramitando");
+	T("Tramitando"), C("Concluído"), E("Encerrado");
 
 	private ProcessoSituacao(String label) {
 		this.label = label;
