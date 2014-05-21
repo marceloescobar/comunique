@@ -50,9 +50,10 @@ public class Tramitacao implements Serializable{
 	private Date horaEnvio;
 	
 	
-	
-	@Column(name="traSetorDestino")
-	private String setorDestino;
+	@ManyToOne
+    @JoinColumn(name="traSetorDestino", referencedColumnName="setCodSetor")
+	//@Column(name="traSetorDestino")
+	private Setor setorDestino;
 	
 	
 	
@@ -92,6 +93,56 @@ public class Tramitacao implements Serializable{
 
 	public void setDataEnvio(Date dataEnvio) {
 		this.dataEnvio = dataEnvio;
+	}
+
+	public String getSetorRemetente() {
+		return setorRemetente;
+	}
+
+	public void setSetorRemetente(String setorRemetente) {
+		this.setorRemetente = setorRemetente;
+	}
+
+	public Date getHoraEnvio() {
+		return horaEnvio;
+	}
+
+	public void setHoraEnvio(Date horaEnvio) {
+		this.horaEnvio = horaEnvio;
+	}
+
+
+
+	public Setor getSetorDestino() {
+		return setorDestino;
+	}
+
+	public void setSetorDestino(Setor setorDestino) {
+		this.setorDestino = setorDestino;
+	}
+
+	public Date getDataRecebido() {
+		return dataRecebido;
+	}
+
+	public void setDataRecebido(Date dataRecebido) {
+		this.dataRecebido = dataRecebido;
+	}
+
+	public Date getHoraRecebido() {
+		return horaRecebido;
+	}
+
+	public void setHoraRecebido(Date horaRecebido) {
+		this.horaRecebido = horaRecebido;
+	}
+
+	public String getObs() {
+		return obs;
+	}
+
+	public void setObs(String obs) {
+		this.obs = obs;
 	}
 	
 	

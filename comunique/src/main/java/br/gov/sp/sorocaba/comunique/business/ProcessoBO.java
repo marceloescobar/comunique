@@ -21,8 +21,8 @@ public class ProcessoBO {
 
 	public Page<Processo> buscarProcessos(Pageable pageable) {
 		
-		return processoRepository.findAll(pageable);
-		
+		//return processoRepository.findAll(pageable);
+		return processoRepository.findAllOrderByProcesso(pageable);
 		//return processoRepository.findOrderByProcesso(pageable);
 	}
 	

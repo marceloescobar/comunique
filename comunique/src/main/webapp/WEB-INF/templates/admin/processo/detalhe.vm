@@ -1,57 +1,50 @@
 
 						<div class="page-content">
 						
-							teste
-							#foreach($t in $processo.tramitacoes)
-												$t.setorRemetente / $t.dataEnvio<br>
-											#end	
+							
+								
 											
 							<!-- Heading -->
 							<div class="single-head">
 								<!-- Heading -->
-								<h3 class="pull-left"><i class="fa fa-envelope green"></i> Processo $processo.processo</h3>
+								<h3 class="pull-left"><i class="fa fa-file-o"></i> Processo $processo.processo</h3>
 								<!-- Bread crumbs -->
 								<div class="breads pull-right">
-									<strong>Nav</strong> : <a href="#">Home</a> / <a href="#">Sign</a> / Home
+									<strong>Nav</strong> : <a href="#">Home</a> / <a href="#">Processos</a> / processo
 								</div>
 								<div class="clearfix"></div>
 							</div>
 							
-							<!-- Inbox page content -->
 							<div class="page-inbox">
 								<div class="row">
 									
 									<div class="col-md-9 col-sm-8">
-										<!-- Page for read mails from inbox -->
+
 										<div class="mail-read">
-											<!-- Mail Head -->
-										
-											<!-- Mail Details -->
+											
 											<div class="mail-details">
 												
 												<h5>Detalhe</h5>
-												<!-- Attachment data -->
+											
 												<div class="mail-attach">
 													<div class="attach-data">
-														<!-- Title -->
+											
 														<p><strong>interessado:</strong> $processo.interessado</p>
 														<div class="clearfix"></div>
 													</div>
 													<div class="attach-data">
-														<!-- Title -->
+											
 														<p><strong>Codigo Assunto:</strong> $processo.codigoAssunto</p>
 														<div class="clearfix"></div>
 													</div>
 													<div class="attach-data">
-														<!-- Title -->
+											
 														<p><strong>Assunto:</strong> $processo.assunto</p>
 														<div class="clearfix"></div>
 													</div>
 													<div class="attach-data">
-														<!-- Title -->
+											
 														<p><strong>Situação:</strong> $processo.situacao.label</p>
-														
-														
 														<div class="clearfix"></div>
 													</div>
 												</div> 
@@ -73,8 +66,8 @@
 									<!-- Contacts widget -->
 									<div class="widget contacts-widget">
 										
-										<div class="widget-head br-lblue">
-											<h3><i class="fa fa-tasks"></i> Tramitacoes</h3>
+										<div class="widget-head br-blue">
+											<h3><i class="fa fa-tasks"></i> Tramitações</h3>
 										</div>
 										
 										<div class="widget-body scroll">
@@ -82,7 +75,9 @@
 											<ul class="list-unstyled">
 											
 																								
-												<!-- Single contact -->
+												#foreach($t in $processo.tramitacoes)
+												
+											
 												<li class="c-list">
 													<!-- Contact pic -->
 													
@@ -90,194 +85,40 @@
 													<div class="contact-details">
 														<!-- Contact name and number -->
 														<div class="pull-left">
-															<strong> STOP - SECAO DE TOPOGRAFIA</strong>
-															<small>13/05/2014   10:27:48</small>
-															<small>14/05/2014   16:14:01</small>
+															<strong>$t.setorDestino.codigoSetor - $t.setorDestino.nomeSetor</strong>
+															<small>ENVIADO: $date.format('dd/MM/yyyy', $t.dataEnvio) $t.horaEnvio</small>
+															<small>RECEBIDO: $date.format('dd/MM/yyyy', $t.dataRecebido) $t.horaRecebido</small>
 														</div>
 														<!-- Call, Message and Email buttons -->
 														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
+															
+															#if($t.obs != "")
+															<a class="btn btn-danger btn-xs ui-tooltip" href="#" data-toggle="tooltip" data-placement="bottom" title="OBS: $t.obs"><i class="fa fa-comment-o""></i></a>
+															#end
+
+															<a href="#" class="btn btn-info btn-xs ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Mapa"><i class="fa fa-map-marker"></i></a>
+															<a href="#" class="btn btn-primary btn-xs ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Comunicado"><i class="fa fa-envelope-o"></i></a>
 														</div>
 														<div class="clearfix"></div>
 													</div>
+													
+												##	#if($t.obs != "")<div class="alert alert-success"><strong>Obs:</strong> $t.obs</div>#end
+
 												</li>
 												
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-														
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong> STOP - SECAO DE TOPOGRAFIA </strong>
-															<small><b>enviado:</b> 13/05/2014 10:27:48</small>
-															<small><b>recebido:</b> 13/05/2014 10:27:48</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>
-
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-														
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Ashok Ramesh</strong>
-															<small>(+1) 245-556-2849</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>
-					
 												
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-														
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Babu Reddy</strong>
-															<small>(+1) 145-556-5848</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs ui-tooltip" data-toggle="tooltip" data-placement="top" title="Tooltip on top"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>
 												
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-														
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Biswin Kumar</strong>
-															<small>(+11) 425-576-9849</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>
-
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-														
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Balaji</strong>
-															<small>(+1) 245-556-2849</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>		
-
-																														
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-														
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Satish Kumar</strong>
-															<small>(+1) 145-556-5848</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>
 												
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Siva Kumar</strong>
-															<small>(+11) 425-576-9849</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>
-
-												<li class="c-list">
-													<!-- Contact pic -->
-													<div class="contact-pic">
-													</div>
-													<!-- Contact details -->
-													<div class="contact-details">
-														<!-- Contact name and number -->
-														<div class="pull-left">
-															<strong>Sabari</strong>
-															<small>(+1) 245-556-2849</small>
-														</div>
-														<!-- Call, Message and Email buttons -->
-														<div class="pull-right">
-															<a href="#" class="btn btn-info btn-xs"><i class="fa fa-envelope-o"></i></a>
-															<a href="#" class="btn btn-success btn-xs"><i class="fa fa-comments"></i></a>
-														</div>
-														<div class="clearfix"></div>
-													</div>
-												</li>												
+											#end	
+											
+																				
 												
 											</ul>
 																					
 										</div>
 										
 										<div class="widget-foot">
-											<span class="pull-left">520 Contacts</span>
+											<span class="pull-left">$processo.tramitacoes.size() Tramitações</span>
 											
 											<div class="clearfix"></div>
 										</div>

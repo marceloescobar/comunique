@@ -1,6 +1,5 @@
 package br.gov.sp.sorocaba.comunique.dominio;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -12,13 +11,14 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "processos")
-public class Processo implements Serializable{
+public class Processo extends BaseEntity<Integer>{
 
 	/**
 	 * 
@@ -53,6 +53,7 @@ public class Processo implements Serializable{
 	private ProcessoSituacao situacao;
 	
 	@OneToMany(fetch=FetchType.LAZY)
+	@OrderBy("dataEnvio DESC, horaEnvio DESC")
 	@JoinColumn(name="traProcesso", referencedColumnName="proProcesso")
 	private List<Tramitacao> tramitacoes;
 	

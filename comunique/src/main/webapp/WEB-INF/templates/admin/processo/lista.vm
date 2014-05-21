@@ -50,7 +50,24 @@
 														<td><a href="#springUrl('/processo/')$processo.id">$processo.processo</a></td>
 														<td>$processo.interessado</td>
 														<td>$date.format('dd/MM/yyyy', $processo.dataCadastro)</td>
-														<td><span class="badge badge-danger">$processo.situacao</span></td>
+														<td>
+															
+															#if($processo.situacao == 'C')
+																<span class="badge badge-success">
+															
+															#elseif($processo.situacao == 'E')
+																<span class="badge badge-danger">
+															
+															#elseif($processo.situacao == 'T')		
+																	<span class="badge badge-warning">
+															#end	
+																
+																
+																$processo.situacao</span>
+														
+														
+														
+														</td>
 														<!-- <td><span class="badge badge-success">A</span></td> -->
 														
 													</tr>
