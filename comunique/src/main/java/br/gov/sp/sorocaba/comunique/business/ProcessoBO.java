@@ -26,7 +26,7 @@ public class ProcessoBO {
 		//return processoRepository.findOrderByProcesso(pageable);
 	}
 	
-	private Sort sortByProcessoDesc() {
+	/*private Sort sortByProcessoDesc() {
         return new Sort(Sort.Direction.DESC, "processo");
-    }
+    }*/
 }

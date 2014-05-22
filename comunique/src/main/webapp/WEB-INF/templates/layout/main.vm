@@ -57,6 +57,12 @@
 			
 		<!-- jQuery slim scroll -->
 		<script src="#springUrl('/resources/assets/js/jquery.slimscroll.min.js')"></script>
+		
+		
+		<script src="#springUrl('/resources/assets/js/bootbox.min.js')"></script>
+		
+		
+		<script src="#springUrl('/resources/assets/js/comunique.js')"></script>
 			
 		
 		

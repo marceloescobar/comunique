@@ -1,0 +1,15 @@
+#set($layout = "layout/simpleLayout.vm")
+
+<div class="page-form">
+	<form class="form-horizontal" role="form">
+                              
+		<div class="form-group">
+			<label class="col-lg-2 control-label">Input Box</label>
+			<div class="col-lg-10">
+				<input type="text" class="form-control" placeholder="Input Box">
+			</div>
+		</div>
+
+	</form>						
+									
+</div>									
