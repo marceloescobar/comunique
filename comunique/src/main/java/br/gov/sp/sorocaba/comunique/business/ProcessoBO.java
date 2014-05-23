@@ -16,7 +16,7 @@ public class ProcessoBO {
 	private ProcessoRepository processoRepository;
 	
 	public Processo get(Integer id){
-		return processoRepository.findById(id);
+		return processoRepository.findOne(id);
 	}
 
 	public Page<Processo> buscarProcessos(Pageable pageable) {

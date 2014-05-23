@@ -1,12 +1,9 @@
 package br.gov.sp.sorocaba.comunique.dominio;
 
-import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -16,7 +13,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "tramitacoes")
-public class Tramitacao implements Serializable{
+public class Tramitacao extends BaseEntity<Integer>{
 
 	/**
 	 * 
@@ -29,13 +26,13 @@ public class Tramitacao implements Serializable{
 	private Integer id;
 	
 	
-	@Column(name="traProcesso")
-	private Integer processo;
+	//@Column(name="traProcesso")
+	//private Integer processo;
 	
 	
-	//@ManyToOne
-    //@JoinColumn(name="traProcesso", referencedColumnName="")
-	//private Processo processo;
+	@ManyToOne
+    @JoinColumn(name="traProcesso", referencedColumnName="proProcesso")
+	private Processo processo;
 	
 	
 	@Column(name="traSetorRemetente")
@@ -52,7 +49,6 @@ public class Tramitacao implements Serializable{
 	
 	@ManyToOne
     @JoinColumn(name="traSetorDestino", referencedColumnName="setCodSetor")
-	//@Column(name="traSetorDestino")
 	private Setor setorDestino;
 	
 	
@@ -79,11 +75,13 @@ public class Tramitacao implements Serializable{
 		this.id = id;
 	}
 
-	public Integer getProcesso() {
+
+
+	public Processo getProcesso() {
 		return processo;
 	}
 
-	public void setProcesso(Integer processo) {
+	public void setProcesso(Processo processo) {
 		this.processo = processo;
 	}
 

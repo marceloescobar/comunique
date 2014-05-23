@@ -52,9 +52,9 @@ public class Processo extends BaseEntity<Integer>{
 	@Enumerated(EnumType.STRING)
 	private ProcessoSituacao situacao;
 	
-	@OneToMany(fetch=FetchType.LAZY)
+	@OneToMany(fetch=FetchType.LAZY, mappedBy="processo")
 	@OrderBy("dataEnvio DESC, horaEnvio DESC")
-	@JoinColumn(name="traProcesso", referencedColumnName="proProcesso")
+	//@JoinColumn(name="traProcesso", referencedColumnName="proProcesso")
 	private List<Tramitacao> tramitacoes;
 	
 
