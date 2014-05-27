@@ -1,24 +1,13 @@
-
-						<div class="page-content">
-						
+<div class="page-content">
+	<div class="single-head">
+		<h3 class="pull-left"><i class="fa fa-file-o"></i> Processo $processo.processo</h3>
+		<div class="breads pull-right"><strong>Nav</strong> : <a href="#">Home</a> / <a href="#">Processos</a> / processo</div>
+		<div class="clearfix"></div>
+	</div>
 							
-								
-											
-							<!-- Heading -->
-							<div class="single-head">
-								<!-- Heading -->
-								<h3 class="pull-left"><i class="fa fa-file-o"></i> Processo $processo.processo</h3>
-								<!-- Bread crumbs -->
-								<div class="breads pull-right">
-									<strong>Nav</strong> : <a href="#">Home</a> / <a href="#">Processos</a> / processo
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							
-							<div class="page-inbox">
-								<div class="row">
-									
-									<div class="col-md-9 col-sm-8">
+	<div class="page-inbox">
+		<div class="row">
+			<div class="col-md-9 col-sm-8">
 
 										<div class="mail-read">
 											
@@ -96,8 +85,8 @@
 															<a class="btn btn-danger btn-xs ui-tooltip" href="#" data-toggle="tooltip" data-placement="bottom" title="OBS: $t.obs"><i class="fa fa-comment-o""></i></a>
 															#end
 
-															<a href="#" class="btn btn-info btn-xs ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Mapa"><i class="fa fa-map-marker"></i></a>
-															<a href="#" onclick="comunique('#springUrl('/tramitacao/')$t.id/comunique')" class="btn btn-primary btn-xs ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Comunicado"><i class="fa fa-envelope-o"></i></a>
+															<a href="#" onclick="abriMapa('#springUrl('/endereco/')$t.setorDestino.codigoSetor')" class="btn btn-info btn-xs ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Mapa"><i class="fa fa-map-marker"></i></a>
+															<a href="#" onclick="comunique('#springUrl('/admin/tramitacao/')$t.id/comunique')" class="btn btn-primary btn-xs ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Comunicado"><i class="fa fa-envelope-o"></i></a>
 														</div>
 														<div class="clearfix"></div>
 													</div>

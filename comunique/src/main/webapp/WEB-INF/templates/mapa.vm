@@ -1,0 +1,33 @@
+#set($layout = "layout/blank.vm")
+
+<html>
+    <head>
+	
+	
+	  
+	    
+	
+	</head>
+	
+	
+	<body onunload="GUnload()">
+		
+		<div class="main-content">
+				
+									
+	
+##<input type="hidden" name="end" id="end" value="<?=$sEndereco?>" />
+ <input type="hidden" name="end" id="end" value="Av Eng Carlos Reinaldo Mendes, 3041 Sorocaba - SP" />
+##<input type="hidden" name="endereco" id="endereco" value="<b><?=$row['setNomeAtual']?></b><br><?=$sEndereco?>" />&nbsp;
+ <input type="hidden" name="endereco" id="endereco" value="<b>Divis&atilde;o de Licenciamento e Controle</b><br>Av Eng Carlos Reinaldo Mendes, 3041 Alto da Boa Vista - 2Âº Andar" />
+  
+
+
+ <div id="map" style="width:500px;height:400px"></div>
+						
+				
+				
+		</div>
+		<div class="clearfix"></div>
+	</body>
+</html>	

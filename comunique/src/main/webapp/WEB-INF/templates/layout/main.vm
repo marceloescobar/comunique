@@ -3,18 +3,8 @@
 	<head>
 		<title>Sistema Comunique</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
-		<!-- Styles -->
-		<!-- Bootstrap CSS -->
-		<link href="#springUrl('/resources/assets/css/bootstrap.min.css')" rel="stylesheet">
-		<!-- Font awesome CSS -->
-		<link href="#springUrl('/resources/assets/css/font-awesome.min.css')" rel="stylesheet">		
-		<!-- jQuery gritter -->
-		<link href="css/jquery.gritter.css" rel="stylesheet">
-		<!-- Custom Color CSS -->
-		<link href="#springUrl('/resources/assets/css/less-style.css')" rel="stylesheet">	
-		<!-- Custom CSS -->
-		<link href="#springUrl('/resources/assets/css/style.css')" rel="stylesheet">
+		#parse('layout/include_css.vm')
+		<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA7VDqOrsO_MUBwBVR1Ow8VxQ7sdBbzahB1hELckMZwgB8w1oL3xSWq34VFHB-3gUt9H0YFoFom7RsAA" type="text/javascript"></script>
 	</head>
 	
 	<body>
@@ -67,15 +57,16 @@
 		
 		
 		<!-- jQuery gritter -->
-		<script src="js/jquery.gritter.min.js"></script>
+		##<script src="js/jquery.gritter.min.js"></script>
 		<!-- jQuery gritter notification -->
-		<script src="js/custom.notification.js"></script>
+		##<script src="js/custom.notification.js"></script>
 		<!-- Respond JS for IE8 -->
-		<script src="js/respond.min.js"></script>
+		##<script src="js/respond.min.js"></script>
 
 		
 		<!-- Custom JS -->
 		<script src="#springUrl('/resources/assets/js/custom.js')"></script>
+		
 		
 
 		

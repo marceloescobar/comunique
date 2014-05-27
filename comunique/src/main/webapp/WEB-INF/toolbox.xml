@@ -69,6 +69,11 @@
 	  <class>org.apache.commons.lang.WordUtils</class>
 	</tool>
 	
+	<tool>
+	  <key>userCredentials</key>
+	  <scope>request</scope>
+	  <class>br.gov.sp.sorocaba.comunique.util.security.AuthenticatedUserCredentials</class>
+	</tool>
 	
 	
 </toolbox>

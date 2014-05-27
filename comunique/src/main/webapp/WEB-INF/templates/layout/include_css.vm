@@ -1,0 +1,13 @@
+<!-- Styles -->
+		<!-- Bootstrap CSS -->
+		<link href="#springUrl('/resources/assets/css/bootstrap.min.css')" rel="stylesheet">
+		<!-- Font awesome CSS -->
+		<link href="#springUrl('/resources/assets/css/font-awesome.min.css')" rel="stylesheet">		
+		
+		##<!-- jQuery gritter -->
+		##<link href="css/jquery.gritter.css" rel="stylesheet">
+		
+		<!-- Custom Color CSS -->
+		<link href="#springUrl('/resources/assets/css/less-style.css')" rel="stylesheet">	
+		<!-- Custom CSS -->
+		<link href="#springUrl('/resources/assets/css/style.css')" rel="stylesheet">

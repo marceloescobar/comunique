@@ -1,0 +1,22 @@
+#set($layout = "layout/layout_login.vm")
+
+		<div class="outer-page">
+			
+			 <!-- Error page -->
+			 <div class="error-page br-lblue text-center">
+				<div class="error-page-inner">
+					<h1>Acesso Negado</h1>
+					<p>voce esta tentando acessar uma página a qual voce não possui acesso</p>
+					<p>Favor contatar o administrador.</p>
+					
+					
+					  <br>
+					  <button type="submit" class="btn btn-black">voltar</button>
+					
+					
+				</div>
+			 </div>
+			
+		</div>
+		
+	

@@ -1,0 +1,10 @@
+<div class="page-content">
+	<div class="single-head">
+		<h3 class="pull-left"><i class="fa fa-exclamation-triangle red"></i> Erro ao Efetuar Operação</h3>
+		<div class="clearfix"></div>
+	</div>
+							
+	
+	<p><strong>Erro:</strong> $erro</p>
+	
+</div>

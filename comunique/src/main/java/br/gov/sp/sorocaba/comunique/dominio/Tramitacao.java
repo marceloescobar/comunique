@@ -67,6 +67,14 @@ public class Tramitacao extends BaseEntity<Integer>{
 	@Column(name="traObs")
 	private String obs;
 
+	
+	public Tramitacao(){}
+	
+	public Tramitacao(Integer id){
+		this.id = id;
+	}
+	
+	
 	public Integer getId() {
 		return id;
 	}

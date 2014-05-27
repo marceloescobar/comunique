@@ -14,6 +14,7 @@ import br.gov.sp.sorocaba.comunique.business.ProcessoBO;
 import br.gov.sp.sorocaba.comunique.dominio.Processo;
 
 @Controller
+@RequestMapping("admin")
 public class ProcessoController {
 
 	@Autowired
@@ -36,8 +37,15 @@ public class ProcessoController {
 	public String obterProcesso(ModelMap model, @PathVariable Integer id){
 	
 		Processo processo = processoBO.get(id);
-		model.addAttribute("processo", processo);
 		
-		return "admin/processo/detalhe";
+		if (processo == null){
+			model.addAttribute("erro", "processo nao encontrado");
+			return "admin/error";
+			
+		}else{
+			model.addAttribute("processo", processo);
+			
+			return "admin/processo/detalhe";	
+		}
 	}
 }

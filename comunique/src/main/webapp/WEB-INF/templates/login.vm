@@ -1,0 +1,54 @@
+#set($layout = "layout/layout_login.vm")
+
+		<div class="outer-page">
+			
+			 <!-- Login page -->
+			 <div class="login-page">
+
+					<!-- Nav tabs -->
+					<ul class="nav nav-tabs nav-justified">
+					  <li ><a href="#login" data-toggle="tab" class="br-lblue"><i class="fa fa-sign-in"></i> Login</a></li>
+					
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+					  <div class="tab-pane fade active in" id="login">
+					  
+						<!-- Login form -->
+						
+						<form role="form" action="j_spring_security_check" method="POST">
+						  <div class="form-group">
+							<label for="email">usuario</label>
+							<input type="text" class="form-control" id="j_username" name="j_username" placeholder="Email">
+						  </div>
+						  <div class="form-group">
+							<label for="password">senha</label>
+							<input type="password" class="form-control" id="j_password" name="j_password" placeholder="Password">
+						  </div>
+						  
+						  #if ($SPRING_SECURITY_LAST_EXCEPTION)
+						  <div class="alert alert-danger alert-dismissable">
+								
+								$SPRING_SECURITY_LAST_EXCEPTION.message
+						  </div>
+						  #end				
+						 
+						  <button type="submit" class="btn btn-info btn-sm">Submit</button>
+						  <button type="reset" class="btn btn-default btn-sm">cancelar</button>
+						</form>
+						
+					  </div>
+					  
+					  
+						  
+					  
+					
+					</div>
+					
+			 </div>	
+			
+		</div>
+		
+	
+		

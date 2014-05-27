@@ -4,19 +4,30 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "comunique")
-public class Comunique {
+public class Comunique extends BaseEntity<Integer>{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
 	@ManyToOne
@@ -39,6 +50,18 @@ public class Comunique {
 
 	@Column(name = "responsavel")
 	private String responsavel;
+	
+	@Column(name = "status")
+	private Boolean status;
+	
+	@ManyToOne
+    @JoinColumn(name="usuario_id", nullable = false)
+	private Usuario usuario;
+	
+	
+	@Transient
+	private MultipartFile comuniqueFile;
+	
 
 	public Integer getId() {
 		return id;
@@ -95,7 +118,31 @@ public class Comunique {
 	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-	
-	
 
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public MultipartFile getComuniqueFile() {
+		return comuniqueFile;
+	}
+
+	public void setComuniqueFile(MultipartFile comuniqueFile) {
+		this.comuniqueFile = comuniqueFile;
+	}
+	
+	
+	
 }

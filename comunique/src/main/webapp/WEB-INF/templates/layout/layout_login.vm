@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Title here -->
+		<title>Sistema de Obras - LOGIN</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		#parse('layout/include_css.vm')
+	</head>
+	
+	<body>
+	
+		$screen_content
+		
+	</body>	
+</html>	
